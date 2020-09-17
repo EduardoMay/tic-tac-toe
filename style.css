@@ -3,3 +3,37 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    width: 100wh;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    width: 30%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    text-align: center;
+}
+
+.game-item {
+    padding: 3rem;
+    border: 1px solid crimson;
+    font-size: 2rem;
+    color: darkgray;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 480ms all;
+}
+
+.game-item:hover {
+    background-color: snow;
+    color: black;
+}
