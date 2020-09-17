@@ -37,3 +37,13 @@ body {
     background-color: snow;
     color: black;
 }
+
+.selected {
+    background-color: wheat;
+    color: black;
+    cursor: not-allowed;
+}
+
+.selected:hover {
+    background-color: wheat;
+}
