@@ -31,6 +31,7 @@ function changePlayer(e) {
         setItemPlayer(dataGame, 1);
         resolverHorizontalPlayer('X');
         resolverVerticalPlayer('X');
+        resolverDiagonalPlayer('X');
 
         player1 = false;
         player2 = true;
@@ -42,6 +43,7 @@ function changePlayer(e) {
         setItemPlayer(dataGame, 2);
         resolverHorizontalPlayer('O');
         resolverVerticalPlayer('O');
+        resolverDiagonalPlayer('O');
 
         player1 = true;
         player2 = false;
@@ -136,6 +138,40 @@ function resolverVerticalPlayer(itemPlayer) {
                         document.querySelector(`[data-game='2']`).classList.add('winner');
                         document.querySelector(`[data-game='5']`).classList.add('winner');
                         document.querySelector(`[data-game='8']`).classList.add('winner');
+                    break;
+            }
+
+            (player1)
+                ? document.querySelector('#winner').innerHTML = 'Gano X'
+                : document.querySelector('#winner').innerHTML = 'Gano O';
+
+            break;
+        }
+
+    }
+}
+
+function resolverDiagonalPlayer(itemPlayer) {
+    let tableVertical = [
+        [ tablePlayer[0][0], tablePlayer[1][1], tablePlayer[2][2] ],
+        [ tablePlayer[0][2], tablePlayer[1][1], tablePlayer[2][0] ],
+    ];
+
+    for (let i = 0; i < 2; i++) {
+        const items = tableVertical[i];
+
+        if(items.every(item => item === itemPlayer)) {
+            switch (i) {
+                case 0:
+                        document.querySelector(`[data-game='0']`).classList.add('winner');
+                        document.querySelector(`[data-game='4']`).classList.add('winner');
+                        document.querySelector(`[data-game='8']`).classList.add('winner');
+                    break;
+
+                default:
+                        document.querySelector(`[data-game='2']`).classList.add('winner');
+                        document.querySelector(`[data-game='4']`).classList.add('winner');
+                        document.querySelector(`[data-game='6']`).classList.add('winner');
                     break;
             }
 
