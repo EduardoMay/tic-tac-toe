@@ -9,6 +9,7 @@ body {
     height: 100vh;
     background-color: black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -56,4 +57,8 @@ body {
 .winner:hover {
     color: #ffffff;
     background-color: crimson;
+}
+
+.actions-items {
+    color: white;;
 }
