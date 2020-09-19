@@ -8,7 +8,7 @@ const winners = [
     ['0', '4', '8'],
     ['2', '4', '6'],
 ];
-const tablePlayer = [['', '', ''], ['', '', ''], ['', '', '']];
+const tablePlayer = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
 
 let pointsPlayer1 = 0, pointsPlayer2 = 0,  player1 = true, player2 = false;
 
@@ -30,6 +30,7 @@ function changePlayer(e) {
 
         setItemPlayer(dataGame, 1);
         resolverHorizontalPlayer('X');
+        resolverVerticalPlayer('X');
 
         player1 = false;
         player2 = true;
@@ -40,6 +41,7 @@ function changePlayer(e) {
 
         setItemPlayer(dataGame, 2);
         resolverHorizontalPlayer('O');
+        resolverVerticalPlayer('O');
 
         player1 = true;
         player2 = false;
@@ -75,7 +77,6 @@ function setItemPlayer(dataGame, dataPlayer) {
 }
 
 function resolverHorizontalPlayer(itemPlayer) {
-    console.table(tablePlayer)
     for (let i = 0; i < 3; i++) {
         const items = tablePlayer[i];
 
@@ -98,16 +99,52 @@ function resolverHorizontalPlayer(itemPlayer) {
                     }
                     break;
             }
-            console.log('Ganastes');
 
-            if(player1) {
-                console.log('Player 1');
-                document.querySelector('#winner').innerHTML = 'Gano X';
-            } else {
-                console.log('Player 2');
-                document.querySelector('#winner').innerHTML = 'Gano O';
-            }
+            (player1)
+                ? document.querySelector('#winner').innerHTML = 'Gano X'
+                : document.querySelector('#winner').innerHTML = 'Gano O';
+
             break;
         }
+    }
+}
+
+function resolverVerticalPlayer(itemPlayer) {
+    let tableVertical = [
+        [ tablePlayer[0][0], tablePlayer[1][0], tablePlayer[2][0] ],
+        [ tablePlayer[0][1], tablePlayer[1][1], tablePlayer[2][1] ],
+        [ tablePlayer[0][2], tablePlayer[1][2], tablePlayer[2][2] ],
+    ];
+
+    for (let i = 0; i < 3; i++) {
+        const items = tableVertical[i];
+
+        if(items.every(item => item === itemPlayer)) {
+            switch (i) {
+                case 0:
+                        document.querySelector(`[data-game='0']`).classList.add('winner');
+                        document.querySelector(`[data-game='3']`).classList.add('winner');
+                        document.querySelector(`[data-game='6']`).classList.add('winner');
+                    break;
+                case 1:
+                        document.querySelector(`[data-game='1']`).classList.add('winner');
+                        document.querySelector(`[data-game='4']`).classList.add('winner');
+                        document.querySelector(`[data-game='7']`).classList.add('winner');
+                    break;
+
+                default:
+                        document.querySelector(`[data-game='2']`).classList.add('winner');
+                        document.querySelector(`[data-game='5']`).classList.add('winner');
+                        document.querySelector(`[data-game='8']`).classList.add('winner');
+                    break;
+            }
+
+            (player1)
+                ? document.querySelector('#winner').innerHTML = 'Gano X'
+                : document.querySelector('#winner').innerHTML = 'Gano O';
+
+            break;
+        }
+
     }
 }
