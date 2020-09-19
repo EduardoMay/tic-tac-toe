@@ -47,3 +47,13 @@ body {
 .selected:hover {
     background-color: wheat;
 }
+
+.winner {
+    background-color: crimson;
+    color: #ffffff;
+}
+
+.winner:hover {
+    color: #ffffff;
+    background-color: crimson;
+}
