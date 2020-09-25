@@ -7,7 +7,7 @@
 body {
     width: 100wh;
     height: 100vh;
-    background-color: black;
+    background-color: #F8F9FA;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,12 +26,31 @@ body {
 
 .game-item {
     padding: 3rem;
-    border: 1px solid crimson;
     font-size: 2rem;
     color: darkgray;
+    background-color: #ffffff;
+    box-shadow: 0px 5px 30px rgba(141, 139, 139, 0.25);
     font-weight: bold;
     cursor: pointer;
     transition: 480ms all;
+}
+
+.game-item:nth-child(1),
+.game-item:nth-child(2),
+.game-item:nth-child(4),
+.game-item:nth-child(5) {
+    border-right: 3px solid #212529;
+    border-bottom: 3px solid #212529;
+}
+
+.game-item:nth-child(3),
+.game-item:nth-child(6) {
+    border-bottom: 3px solid #212529;
+}
+
+.game-item:nth-child(7),
+.game-item:nth-child(8) {
+    border-right: 3px solid #212529;
 }
 
 .game-item:hover {
@@ -40,13 +59,8 @@ body {
 }
 
 .selected {
-    background-color: wheat;
     color: black;
     cursor: not-allowed;
-}
-
-.selected:hover {
-    background-color: wheat;
 }
 
 .winner {
@@ -60,5 +74,6 @@ body {
 }
 
 .actions-items {
-    color: white;;
+    margin-top: 5rem;
+    color: #212529;
 }
