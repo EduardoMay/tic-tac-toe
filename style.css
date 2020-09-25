@@ -2,16 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
-    width: 100wh;
+    width: 100vw;
     height: 100vh;
     background-color: #F8F9FA;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70vh 27vh 3vh;
     align-items: center;
+    justify-items: center;
 }
 
 .game-container {
@@ -58,22 +60,76 @@ body {
     color: black;
 }
 
+.game-item[data-player="1"] {
+    color: #ff0000;
+}
+
+.game-item[data-player="2"] {
+    color: #0000ff;
+}
+
 .selected {
     color: black;
     cursor: not-allowed;
 }
 
-.winner {
-    background-color: crimson;
-    color: #ffffff;
+.winner-h, .winner-v, .winner-d-1, .winner-d-2 {
+    position: relative;
 }
 
-.winner:hover {
-    color: #ffffff;
-    background-color: crimson;
+.winner-h::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: -100%;
+    width: calc(300% + 9px);
+    height: 5px;
+    background-color: red;
+}
+
+.winner-v::before {
+    position: absolute;
+    content: "";
+    top: 0%;
+    left: 50%;
+    width: 5px;
+    height: calc(300% + 9px);
+    background-color: red;
+}
+
+.winner-d-1::before {
+    position: absolute;
+    content: "";
+    top: -50%;
+    left: 150%;
+    width: 5px;
+    height: calc(400% + 9px);
+    transform: rotate(-45deg);
+    background-color: red;
+}
+
+.winner-d-2::before {
+    position: absolute;
+    content: "";
+    top: -50%;
+    left: 150%;
+    width: 5px;
+    height: calc(400% + 9px);
+    transform: rotate(45deg);
+    background-color: red;
 }
 
 .actions-items {
-    margin-top: 5rem;
     color: #212529;
+    text-align: center;
+}
+
+#winner {
+    display: inline-block;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+footer {
+    color: #cccccc;
 }

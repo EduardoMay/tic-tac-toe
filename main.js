@@ -85,26 +85,18 @@ function resolverHorizontalPlayer(itemPlayer) {
         if(items.every(item => item === itemPlayer)) {
             switch (i) {
                 case 0:
-                    for (let i = 0; i < 3; i++) {
-                        document.querySelector(`[data-game='${i}']`).classList.add('winner');
-                    }
+                    document.querySelector(`[data-game='1']`).classList.add('winner-h');
                     break;
                 case 1:
-                    for (let i = 3; i < 6; i++) {
-                        document.querySelector(`[data-game='${i}']`).classList.add('winner');
-                    }
+                    document.querySelector(`[data-game='4']`).classList.add('winner-h');
                     break;
 
                 default:
-                    for (let i = 6; i < 9; i++) {
-                        document.querySelector(`[data-game='${i}']`).classList.add('winner');
-                    }
+                    document.querySelector(`[data-game='7']`).classList.add('winner-h');
                     break;
             }
 
-            (player1)
-                ? document.querySelector('#winner').innerHTML = 'Gano X'
-                : document.querySelector('#winner').innerHTML = 'Gano O';
+            printTextWinner(player1);
 
             break;
         }
@@ -124,26 +116,18 @@ function resolverVerticalPlayer(itemPlayer) {
         if(items.every(item => item === itemPlayer)) {
             switch (i) {
                 case 0:
-                        document.querySelector(`[data-game='0']`).classList.add('winner');
-                        document.querySelector(`[data-game='3']`).classList.add('winner');
-                        document.querySelector(`[data-game='6']`).classList.add('winner');
+                        document.querySelector(`[data-game='0']`).classList.add('winner-v');
                     break;
                 case 1:
-                        document.querySelector(`[data-game='1']`).classList.add('winner');
-                        document.querySelector(`[data-game='4']`).classList.add('winner');
-                        document.querySelector(`[data-game='7']`).classList.add('winner');
+                        document.querySelector(`[data-game='1']`).classList.add('winner-v');
                     break;
 
                 default:
-                        document.querySelector(`[data-game='2']`).classList.add('winner');
-                        document.querySelector(`[data-game='5']`).classList.add('winner');
-                        document.querySelector(`[data-game='8']`).classList.add('winner');
+                        document.querySelector(`[data-game='2']`).classList.add('winner-v');
                     break;
             }
 
-            (player1)
-                ? document.querySelector('#winner').innerHTML = 'Gano X'
-                : document.querySelector('#winner').innerHTML = 'Gano O';
+            printTextWinner(player1);
 
             break;
         }
@@ -163,24 +147,23 @@ function resolverDiagonalPlayer(itemPlayer) {
         if(items.every(item => item === itemPlayer)) {
             switch (i) {
                 case 0:
-                        document.querySelector(`[data-game='0']`).classList.add('winner');
-                        document.querySelector(`[data-game='4']`).classList.add('winner');
-                        document.querySelector(`[data-game='8']`).classList.add('winner');
+                        document.querySelector(`[data-game='0']`).classList.add('winner-d-1');
                     break;
 
                 default:
-                        document.querySelector(`[data-game='2']`).classList.add('winner');
-                        document.querySelector(`[data-game='4']`).classList.add('winner');
-                        document.querySelector(`[data-game='6']`).classList.add('winner');
+                        document.querySelector(`[data-game='0']`).classList.add('winner-d-2');
                     break;
             }
 
-            (player1)
-                ? document.querySelector('#winner').innerHTML = 'Gano X'
-                : document.querySelector('#winner').innerHTML = 'Gano O';
+            printTextWinner(player1);
 
             break;
         }
-
     }
+}
+
+function printTextWinner(player) {
+    (player)
+        ? document.querySelector('#winner').innerHTML = 'Ganador Equipo 1'
+        : document.querySelector('#winner').innerHTML = 'Ganador Equipo 2';
 }
