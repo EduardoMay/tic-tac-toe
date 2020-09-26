@@ -27,6 +27,7 @@ let pointsPlayer1 = 0,
 	player2 = false;
 
 const gameItems = document.querySelectorAll('.game-item');
+document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
 
 gameItems.forEach((item) => {
 	item.addEventListener('click', (e) => {
@@ -66,6 +67,8 @@ function changePlayer(e) {
 			player2 = false;
 		}
 	}
+
+	document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
 }
 
 function setItemPlayer(dataGame, dataPlayer) {
@@ -196,10 +199,6 @@ function resolverDiagonalPlayer(itemPlayer) {
 }
 
 function printTextWinner(player) {
-	player
-		? (document.querySelector('#winner').innerHTML = 'Ganador Equipo 1')
-		: (document.querySelector('#winner').innerHTML = 'Ganador Equipo 2');
-
 	const pointsNow1 = Number(localStorage.player1);
 	const pointsNow2 = Number(localStorage.player2);
 
@@ -268,49 +267,61 @@ document.querySelector('#reset').addEventListener('click', () => {
 	});
 });
 
-const btnPlayer1 = document
-	.querySelector('#player-1')
-	.classList.add('selected');
-const btnPlayer2 = document
-	.querySelector('#player-2')
-	.classList.add('selected');
+const btnPlayer1 = document.querySelector('#player-1');
+const btnPlayer2 = document.querySelector('#player-2');
 const elementChangePlay = document.querySelector('#change-options');
 const btnGameType = document.querySelector('#game-type');
 
-player1 ? btnPlayer1 : btnPlayer2;
+player1
+	? btnPlayer1.classList.add('selected')
+	: btnPlayer2.classList.add('selected');
 
 btnPlayer1.addEventListener('click', (_) => {
-	player1 = !player1;
+	player1 = true;
 	player2 = false;
 
 	btnPlayer1.classList.add('selected');
 	btnPlayer2.classList.remove('selected');
+
+	document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
 });
 
 btnPlayer2.addEventListener('click', (_) => {
 	player1 = false;
-	player2 = !player2;
+	player2 = true;
 
 	btnPlayer1.classList.remove('selected');
 	btnPlayer2.classList.add('selected');
+
+	document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
 });
 
 if (options.automatico) {
 	elementChangePlay.classList.add('d-none');
 }
 
-gameType.addEventListener('click', (e) => {
+btnGameType.addEventListener('click', (e) => {
 	const type = Number(e.target.dataset['gameType']);
 
 	if (type === 1) {
 		options.automatico = false;
 		options.manual = true;
+		e.target.innerText = 'Automatico';
 		e.target.dataset['gameType'] = 2;
 		elementChangePlay.classList.remove('d-none');
 	} else {
 		options.automatico = true;
 		options.manual = false;
 		e.target.dataset['gameType'] = 1;
+		e.target.innerText = 'Manual';
 		elementChangePlay.classList.add('d-none');
+	}
+
+	if (player1) {
+		btnPlayer1.classList.add('selected');
+		btnPlayer2.classList.remove('selected');
+	} else {
+		btnPlayer1.classList.remove('selected');
+		btnPlayer2.classList.add('selected');
 	}
 });
