@@ -10,7 +10,7 @@ const winners = [
     ['0', '4', '8'],
     ['2', '4', '6'],
 ];
-const tablePlayer = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
+let tablePlayer = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
 
 let pointsPlayer1 = 0, pointsPlayer2 = 0,  player1 = true, player2 = false;
 
@@ -191,3 +191,41 @@ function printTextWinner(player) {
     }
 
 }
+
+document.querySelector("#clear").addEventListener('click', () => {
+    tablePlayer = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
+
+    document.querySelector('#winner').innerHTML = '';
+
+    gameItems.forEach((item, index) => {
+        item.classList.remove('winner-h');
+        item.classList.remove('winner-v');
+        item.classList.remove('winner-d-1');
+        item.classList.remove('winner-d-2');
+        item.classList.remove('selected');
+        item.dataset['player'] = '-';
+        item.innerHTML = index + 1;
+    });
+});
+
+document.querySelector("#reset").addEventListener('click', () => {
+    tablePlayer = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
+
+    document.querySelector('#winner').innerHTML = '';
+
+    localStorage.removeItem('player1');
+    localStorage.removeItem('player2');
+
+    document.querySelector('#points-1').innerHTML = 0;
+    document.querySelector('#points-2').innerHTML = 0;
+
+    gameItems.forEach((item, index) => {
+        item.classList.remove('winner-h');
+        item.classList.remove('winner-v');
+        item.classList.remove('winner-d-1');
+        item.classList.remove('winner-d-2');
+        item.classList.remove('selected');
+        item.dataset['player'] = '-';
+        item.innerHTML = index + 1;
+    });
+});

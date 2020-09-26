@@ -141,6 +141,23 @@ body {
     font-size: 2rem;
 }
 
+.btn {
+    padding: 10px 20px;
+    outline: none;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.btn-clear {
+    border-color: #0000ff;
+    color: #0000ff;
+}
+
+.btn-reset {
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
 footer {
     color: #cccccc;
 }
