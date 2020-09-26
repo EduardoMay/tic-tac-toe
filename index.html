@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tic Tac Toe</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<section class="game-container">
+			<div class="game-item" data-game="0" data-player="-">1</div>
+			<div class="game-item" data-game="1" data-player="-">2</div>
+			<div class="game-item" data-game="2" data-player="-">3</div>
+			<div class="game-item" data-game="3" data-player="-">4</div>
+			<div class="game-item" data-game="4" data-player="-">5</div>
+			<div class="game-item" data-game="5" data-player="-">6</div>
+			<div class="game-item" data-game="6" data-player="-">7</div>
+			<div class="game-item" data-game="7" data-player="-">8</div>
+			<div class="game-item" data-game="8" data-player="-">9</div>
+		</section>
 
-    <script src="main.js"></script>
-</body>
+		<section class="actions-items">
+			<div class="points">
+				<div>Equipo 1 - <span id="points-1">0</span> puntos</div>
+				<div>Equipo 2 - <span id="points-2">0</span> puntos</div>
+			</div>
+			<h1 id="winner"></h1>
+
+			<div class="actions-btns">
+				<button
+					class="btn btn-player"
+					id="game-type"
+					type="button"
+					data-game-type="1"
+				>
+					Manual
+				</button>
+				<div id="change-options" style="display: inline">
+					<button class="btn btn-player" id="player-1" type="button">
+						Equipo 1
+					</button>
+					<button class="btn btn-player" id="player-2" type="button">
+						Equipo 2
+					</button>
+				</div>
+				<button class="btn btn-clear" id="clear" type="button">
+					Limpiar
+				</button>
+				<button class="btn btn-reset" id="reset" type="button">
+					Reset
+				</button>
+			</div>
+		</section>
+
+		<footer>
+			<p>Desarrollado por Efrain May</p>
+		</footer>
+
+		<script src="main.js"></script>
+	</body>
 </html>
