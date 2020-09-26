@@ -35,8 +35,8 @@ function changePlayer(e) {
         resolverVerticalPlayer('X');
         resolverDiagonalPlayer('X');
 
-        player1 = false;
-        player2 = true;
+        // player1 = false;
+        // player2 = true;
     } else if(player2) {
         e.target.dataset['player'] = 2;
         e.target.classList += ' selected';
@@ -47,8 +47,8 @@ function changePlayer(e) {
         resolverVerticalPlayer('O');
         resolverDiagonalPlayer('O');
 
-        player1 = true;
-        player2 = false;
+        // player1 = true;
+        // player2 = false;
     }
 }
 
@@ -228,4 +228,24 @@ document.querySelector("#reset").addEventListener('click', () => {
         item.dataset['player'] = '-';
         item.innerHTML = index + 1;
     });
+});
+
+(player1)
+    ? document.querySelector('#player-1').classList.add("selected")
+    : document.querySelector('#player-2').classList.add("selected");
+
+document.querySelector('#player-1').addEventListener('click', _ => {
+    player1 = !player1;
+    player2 = false;
+
+    document.querySelector('#player-1').classList.add("selected");
+    document.querySelector('#player-2').classList.remove("selected");
+});
+
+document.querySelector('#player-2').addEventListener('click', _ => {
+    player1 = false;
+    player2 = !player2;
+
+    document.querySelector('#player-1').classList.remove("selected");
+    document.querySelector('#player-2').classList.add("selected");
 });

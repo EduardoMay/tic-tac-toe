@@ -141,6 +141,10 @@ body {
     font-size: 2rem;
 }
 
+.actions-btns {
+    margin-top: 1rem;
+}
+
 .btn {
     padding: 10px 20px;
     outline: none;
@@ -156,6 +160,10 @@ body {
 .btn-reset {
     border-color: #ff0000;
     color: #ff0000;
+}
+
+.btn-player.selected {
+    background-color: #cccccc;
 }
 
 footer {
