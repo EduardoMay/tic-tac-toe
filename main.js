@@ -1,3 +1,5 @@
+document.querySelector('#points-1').innerHTML = localStorage.player1 || 0;
+document.querySelector('#points-2').innerHTML = localStorage.player2 || 0;
 const winners = [
     ['0', '1', '2'],
     ['3', '4', '5'],
@@ -166,4 +168,26 @@ function printTextWinner(player) {
     (player)
         ? document.querySelector('#winner').innerHTML = 'Ganador Equipo 1'
         : document.querySelector('#winner').innerHTML = 'Ganador Equipo 2';
+
+    const pointsNow1 = Number(localStorage.player1);
+    const pointsNow2 = Number(localStorage.player2);
+
+    if (player) {
+        if (pointsNow1) {
+            localStorage.setItem('player1', pointsNow1 + 1);
+        } else {
+            localStorage.setItem('player1', 1);
+        }
+
+        document.querySelector('#points-1').innerHTML = localStorage.player1;
+    } else {
+        if (pointsNow2) {
+            localStorage.setItem('player2', pointsNow2 + 1);
+        } else {
+            localStorage.setItem('player2', 1);
+        }
+
+        document.querySelector('#points-2').innerHTML = localStorage.player2;
+    }
+
 }
