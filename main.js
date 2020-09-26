@@ -1,5 +1,10 @@
 document.querySelector('#points-1').innerHTML = localStorage.player1 || 0;
 document.querySelector('#points-2').innerHTML = localStorage.player2 || 0;
+
+const options = {
+    automatico: true,
+    manual: false
+}
 const winners = [
     ['0', '1', '2'],
     ['3', '4', '5'],
@@ -35,8 +40,10 @@ function changePlayer(e) {
         resolverVerticalPlayer('X');
         resolverDiagonalPlayer('X');
 
-        // player1 = false;
-        // player2 = true;
+        if (options.automatico) {
+            player1 = false;
+            player2 = true;
+        }
     } else if(player2) {
         e.target.dataset['player'] = 2;
         e.target.classList += ' selected';
@@ -47,8 +54,10 @@ function changePlayer(e) {
         resolverVerticalPlayer('O');
         resolverDiagonalPlayer('O');
 
-        // player1 = true;
-        // player2 = false;
+        if (options.automatico) {
+            player1 = true;
+            player2 = false;
+        }
     }
 }
 
@@ -249,3 +258,24 @@ document.querySelector('#player-2').addEventListener('click', _ => {
     document.querySelector('#player-1').classList.remove("selected");
     document.querySelector('#player-2').classList.add("selected");
 });
+
+if (options.automatico) {
+    document.querySelector("#change-options").classList.add('d-none');
+}
+
+document.querySelector("#game-type").addEventListener('click', e => {
+    const type = Number(e.target.dataset['gameType']);
+
+    if (type === 1) {
+        options.automatico = false;
+        options.manual = true;
+        e.target.dataset['gameType'] = 2;
+        document.querySelector("#change-options").classList.remove('d-none');
+    } else {
+        options.automatico = true;
+        options.manual = false;
+        e.target.dataset['gameType'] = 1;
+        document.querySelector("#change-options").classList.add('d-none');
+    }
+
+})

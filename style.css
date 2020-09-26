@@ -169,3 +169,7 @@ body {
 footer {
     color: #cccccc;
 }
+
+.d-none {
+    display: none !important;
+}
