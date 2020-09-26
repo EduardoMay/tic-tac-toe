@@ -168,13 +168,13 @@ function resolverVerticalPlayer(itemPlayer) {
 }
 
 function resolverDiagonalPlayer(itemPlayer) {
-	let tableVertical = [
+	let tableDiagonal = [
 		[tablePlayer[0][0], tablePlayer[1][1], tablePlayer[2][2]],
 		[tablePlayer[0][2], tablePlayer[1][1], tablePlayer[2][0]],
 	];
 
 	for (let i = 0; i < 2; i++) {
-		const items = tableVertical[i];
+		const items = tableDiagonal[i];
 
 		if (items.every((item) => item === itemPlayer)) {
 			switch (i) {
@@ -192,8 +192,6 @@ function resolverDiagonalPlayer(itemPlayer) {
 			}
 
 			printTextWinner(player1);
-
-			break;
 		}
 	}
 }

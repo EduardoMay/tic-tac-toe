@@ -20,6 +20,7 @@ body {
 	width: 50%;
 	background-color: white;
 	display: grid;
+	box-shadow: 0 16px 18px -10px rgba(0,0,0,.26), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 5px -3px rgba(0,0,0,.1);
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 200px);
 	align-items: center;
@@ -32,7 +33,6 @@ body {
 	font-size: 4rem;
 	color: darkgray;
 	background-color: #ffffff;
-	box-shadow: 0px 5px 30px rgba(141, 139, 139, 0.25);
 	font-weight: bold;
 	cursor: pointer;
 	transition: 480ms all;
