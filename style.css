@@ -121,8 +121,17 @@ body {
 }
 
 .actions-items {
+    width: 100%;
     color: #212529;
     text-align: center;
+}
+
+.points {
+    display: flex;
+    justify-content: space-around;
+    color: #212529;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 #winner {
