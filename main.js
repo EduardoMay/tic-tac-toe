@@ -151,7 +151,7 @@ function resolverDiagonalPlayer(itemPlayer) {
                     break;
 
                 default:
-                        document.querySelector(`[data-game='0']`).classList.add('winner-d-2');
+                        document.querySelector(`[data-game='2']`).classList.add('winner-d-2');
                     break;
             }
 

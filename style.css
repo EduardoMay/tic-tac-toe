@@ -17,18 +17,19 @@ body {
 }
 
 .game-container {
-    width: 30%;
+    width: 50%;
     background-color: white;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 200px);
     align-items: center;
     text-align: center;
 }
 
 .game-item {
-    padding: 3rem;
-    font-size: 2rem;
+    line-height: 200px;
+    height: 100%;
+    font-size: 4rem;
     color: darkgray;
     background-color: #ffffff;
     box-shadow: 0px 5px 30px rgba(141, 139, 139, 0.25);
@@ -100,22 +101,22 @@ body {
 .winner-d-1::before {
     position: absolute;
     content: "";
-    top: -50%;
+    top: -100%;
     left: 150%;
     width: 5px;
-    height: calc(400% + 9px);
-    transform: rotate(-45deg);
+    height: 500%;
+    transform: rotate(-59deg);
     background-color: red;
 }
 
 .winner-d-2::before {
     position: absolute;
     content: "";
-    top: -50%;
-    left: 150%;
+    top: -100%;
+    left: -50%;
     width: 5px;
-    height: calc(400% + 9px);
-    transform: rotate(45deg);
+    height: 500%;
+    transform: rotate(59deg);
     background-color: red;
 }
 
@@ -128,6 +129,7 @@ body {
     display: inline-block;
     margin-top: 1rem;
     text-transform: uppercase;
+    font-size: 2rem;
 }
 
 footer {
