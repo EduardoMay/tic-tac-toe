@@ -22,3 +22,7 @@ Todo el juego esta desarrollado en:
 ## Author
 
 **[Eduardo May](https://github.com/EduardoMay)**
+
+## Preview
+
+![image](https://github.com/EduardoMay/tic-tac-toe/blob/master/img/screen-game.jpg?raw=true)
