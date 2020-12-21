@@ -11,7 +11,7 @@ body {
 	background-color: #f8f9fa;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 70vh 27vh 3vh;
+	grid-template-rows: 60vh 37vh 3vh;
 	align-items: center;
 	justify-items: center;
 }
@@ -22,16 +22,16 @@ body {
 	display: grid;
 	box-shadow: 0 16px 18px -10px rgba(0,0,0,.26), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 5px -3px rgba(0,0,0,.1);
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 200px);
+	grid-template-rows: repeat(3, 100px);
 	align-items: center;
 	text-align: center;
 }
 
 .game-item {
-	line-height: 200px;
+	line-height: 100px;
 	height: 100%;
-	font-size: 4rem;
-	color: darkgray;
+	font-size: 2rem;
+	color: #212529;
 	background-color: #ffffff;
 	font-weight: bold;
 	cursor: pointer;
@@ -166,11 +166,12 @@ body {
 }
 
 .btn-player.selected {
-	background-color: #cccccc;
+	background-color: #000000;
+	color: #ffffff;
 }
 
 footer {
-	color: #707070;
+	color: #000000;
 }
 
 .d-none {

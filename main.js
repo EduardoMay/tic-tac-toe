@@ -27,14 +27,31 @@ let pointsPlayer1 = 0,
 	player2 = false;
 
 const gameItems = document.querySelectorAll('.game-item');
-document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
+document.querySelector('#winner').innerHTML = player1 ? 'Turno X' : 'Turno 0';
 
+const btnPlayer1 = document.querySelector('#player-1');
+const btnPlayer2 = document.querySelector('#player-2');
+const elementChangePlay = document.querySelector('#change-options');
+const btnGameType = document.querySelector('#game-type');
+
+player1
+	? btnPlayer1.classList.add('selected')
+	: btnPlayer2.classList.add('selected');
+
+if (options.automatico) {
+	elementChangePlay.classList.add('d-none');
+}
 gameItems.forEach((item) => {
 	item.addEventListener('click', (e) => {
 		changePlayer(e);
 	});
 });
 
+/**
+ * Detecta el judador principal y va cambiando de turno
+ *
+ * @param   {event}  e  [event]
+ */
 function changePlayer(e) {
 	const dataGame = Number(e.target.dataset['game']);
 
@@ -68,9 +85,17 @@ function changePlayer(e) {
 		}
 	}
 
-	document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
+	document.querySelector('#winner').innerHTML = player1
+		? 'Turno X'
+		: 'Turno 0';
 }
 
+/**
+ * Busca la posicion en el grid y marca con un simbolo
+ *
+ * @param   {number}  dataGame    posicion de la casilla seleccionada
+ * @param   {number}  dataPlayer  numero del jugador
+ */
 function setItemPlayer(dataGame, dataPlayer) {
 	if (dataGame >= 0 && dataGame < 3) {
 		if (dataPlayer === 1) {
@@ -99,6 +124,11 @@ function setItemPlayer(dataGame, dataPlayer) {
 	}
 }
 
+/**
+ * Revisa de forma horizontal y resuelve si el jugador gano
+ *
+ * @param   {[type]}  itemPlayer  posicion de la casilla
+ */
 function resolverHorizontalPlayer(itemPlayer) {
 	for (let i = 0; i < 3; i++) {
 		const items = tablePlayer[i];
@@ -130,6 +160,11 @@ function resolverHorizontalPlayer(itemPlayer) {
 	}
 }
 
+/**
+ * Revisa de forma vertical y resuelve si el jugador gano
+ *
+ * @param   {number}  itemPlayer  posicion de la casilla
+ */
 function resolverVerticalPlayer(itemPlayer) {
 	let tableVertical = [
 		[tablePlayer[0][0], tablePlayer[1][0], tablePlayer[2][0]],
@@ -167,6 +202,11 @@ function resolverVerticalPlayer(itemPlayer) {
 	}
 }
 
+/**
+ * Revisa de forma diagonal y resuelve si el jugador gano
+ *
+ * @param   {number}  itemPlayer  posicion de la casilla
+ */
 function resolverDiagonalPlayer(itemPlayer) {
 	let tableDiagonal = [
 		[tablePlayer[0][0], tablePlayer[1][1], tablePlayer[2][2]],
@@ -196,6 +236,11 @@ function resolverDiagonalPlayer(itemPlayer) {
 	}
 }
 
+/**
+ * Guarda los puntos en el local storage
+ *
+ * @param   {boolean}  player  estado del jugador
+ */
 function printTextWinner(player) {
 	const pointsNow1 = Number(localStorage.player1);
 	const pointsNow2 = Number(localStorage.player2);
@@ -219,6 +264,9 @@ function printTextWinner(player) {
 	}
 }
 
+/**
+ * Limpia todo los valores para volver a iniciar
+ */
 document.querySelector('#clear').addEventListener('click', () => {
 	tablePlayer = [
 		['-', '-', '-'],
@@ -227,6 +275,9 @@ document.querySelector('#clear').addEventListener('click', () => {
 	];
 
 	document.querySelector('#winner').innerHTML = '';
+	document.querySelector('#winner').innerHTML = player1
+		? 'Turno X'
+		: 'Turno 0';
 
 	gameItems.forEach((item, index) => {
 		item.classList.remove('winner-h');
@@ -239,6 +290,9 @@ document.querySelector('#clear').addEventListener('click', () => {
 	});
 });
 
+/**
+ * Reseteo todos los valores
+ */
 document.querySelector('#reset').addEventListener('click', () => {
 	tablePlayer = [
 		['-', '-', '-'],
@@ -247,6 +301,9 @@ document.querySelector('#reset').addEventListener('click', () => {
 	];
 
 	document.querySelector('#winner').innerHTML = '';
+	document.querySelector('#winner').innerHTML = player1
+		? 'Turno X'
+		: 'Turno 0';
 
 	localStorage.removeItem('player1');
 	localStorage.removeItem('player2');
@@ -265,15 +322,9 @@ document.querySelector('#reset').addEventListener('click', () => {
 	});
 });
 
-const btnPlayer1 = document.querySelector('#player-1');
-const btnPlayer2 = document.querySelector('#player-2');
-const elementChangePlay = document.querySelector('#change-options');
-const btnGameType = document.querySelector('#game-type');
-
-player1
-	? btnPlayer1.classList.add('selected')
-	: btnPlayer2.classList.add('selected');
-
+/**
+ * Cambia el texto 'Turno -' cuando el jugador 1 haya seleccionado alguna casilla
+ */
 btnPlayer1.addEventListener('click', (_) => {
 	player1 = true;
 	player2 = false;
@@ -281,9 +332,14 @@ btnPlayer1.addEventListener('click', (_) => {
 	btnPlayer1.classList.add('selected');
 	btnPlayer2.classList.remove('selected');
 
-	document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
+	document.querySelector('#winner').innerHTML = player1
+		? 'Turno X'
+		: 'Turno 0';
 });
 
+/**
+ * Cambia el texto 'Turno -' cuando el jugador 2 haya seleccionado alguna casilla
+ */
 btnPlayer2.addEventListener('click', (_) => {
 	player1 = false;
 	player2 = true;
@@ -291,13 +347,14 @@ btnPlayer2.addEventListener('click', (_) => {
 	btnPlayer1.classList.remove('selected');
 	btnPlayer2.classList.add('selected');
 
-	document.querySelector('#winner').innerHTML = (player1) ? 'Turno X' : 'Turno 0';
+	document.querySelector('#winner').innerHTML = player1
+		? 'Turno X'
+		: 'Turno 0';
 });
 
-if (options.automatico) {
-	elementChangePlay.classList.add('d-none');
-}
-
+/**
+ * Cambia el tipo de juego
+ */
 btnGameType.addEventListener('click', (e) => {
 	const type = Number(e.target.dataset['gameType']);
 

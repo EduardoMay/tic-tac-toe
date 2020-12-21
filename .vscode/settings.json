@@ -1,0 +1,20 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.arrowParens": "always",
+	"prettier.bracketSpacing": true,
+	"prettier.htmlWhitespaceSensitivity": "css",
+	"prettier.insertPragma": false,
+	"prettier.jsxBracketSameLine": false,
+	"prettier.jsxSingleQuote": false,
+	"prettier.printWidth": 80,
+	"prettier.proseWrap": "preserve",
+	"prettier.quoteProps": "as-needed",
+	"prettier.requirePragma": false,
+	"prettier.semi": true,
+	"prettier.singleQuote": true,
+	"prettier.trailingComma": "es5",
+	"prettier.useTabs": true,
+	"prettier.vueIndentScriptAndStyle": false,
+	"prettier.tabWidth": 4,
+	"editor.formatOnSave": true
+}
