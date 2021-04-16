@@ -2,7 +2,7 @@ document.querySelector('#points-1').innerHTML = localStorage.player1 || 0;
 document.querySelector('#points-2').innerHTML = localStorage.player2 || 0;
 
 const options = {
-	automatico: true,
+	auto: true,
 	manual: false,
 };
 const winners = [
@@ -38,7 +38,7 @@ player1
 	? btnPlayer1.classList.add('selected')
 	: btnPlayer2.classList.add('selected');
 
-if (options.automatico) {
+if (options.auto) {
 	elementChangePlay.classList.add('d-none');
 }
 gameItems.forEach((item) => {
@@ -48,9 +48,8 @@ gameItems.forEach((item) => {
 });
 
 /**
- * Detecta el judador principal y va cambiando de turno
- *
- * @param   {event}  e  [event]
+ * Detecta el jugador principal y va cambiando de turno
+ * @param   e event
  */
 function changePlayer(e) {
 	const dataGame = Number(e.target.dataset['game']);
@@ -65,7 +64,7 @@ function changePlayer(e) {
 		resolverVerticalPlayer('X');
 		resolverDiagonalPlayer('X');
 
-		if (options.automatico) {
+		if (options.auto) {
 			player1 = false;
 			player2 = true;
 		}
@@ -79,7 +78,7 @@ function changePlayer(e) {
 		resolverVerticalPlayer('O');
 		resolverDiagonalPlayer('O');
 
-		if (options.automatico) {
+		if (options.auto) {
 			player1 = true;
 			player2 = false;
 		}
@@ -91,10 +90,10 @@ function changePlayer(e) {
 }
 
 /**
- * Busca la posicion en el grid y marca con un simbolo
+ * Busca la posición en el grid y marca con un símbolo
  *
- * @param   {number}  dataGame    posicion de la casilla seleccionada
- * @param   {number}  dataPlayer  numero del jugador
+ * @param   dataGame		posición de la casilla seleccionada
+ * @param   dataPlayer  numero del jugador
  */
 function setItemPlayer(dataGame, dataPlayer) {
 	if (dataGame >= 0 && dataGame < 3) {
@@ -127,7 +126,7 @@ function setItemPlayer(dataGame, dataPlayer) {
 /**
  * Revisa de forma horizontal y resuelve si el jugador gano
  *
- * @param   {[type]}  itemPlayer  posicion de la casilla
+ * @param   itemPlayer  posición de la casilla
  */
 function resolverHorizontalPlayer(itemPlayer) {
 	for (let i = 0; i < 3; i++) {
@@ -163,7 +162,7 @@ function resolverHorizontalPlayer(itemPlayer) {
 /**
  * Revisa de forma vertical y resuelve si el jugador gano
  *
- * @param   {number}  itemPlayer  posicion de la casilla
+ * @param   itemPlayer  posición de la casilla
  */
 function resolverVerticalPlayer(itemPlayer) {
 	let tableVertical = [
@@ -205,7 +204,7 @@ function resolverVerticalPlayer(itemPlayer) {
 /**
  * Revisa de forma diagonal y resuelve si el jugador gano
  *
- * @param   {number}  itemPlayer  posicion de la casilla
+ * @param   itemPlayer  posición de la casilla
  */
 function resolverDiagonalPlayer(itemPlayer) {
 	let tableDiagonal = [
@@ -239,7 +238,7 @@ function resolverDiagonalPlayer(itemPlayer) {
 /**
  * Guarda los puntos en el local storage
  *
- * @param   {boolean}  player  estado del jugador
+ * @param   player  estado del jugador
  */
 function printTextWinner(player) {
 	const pointsNow1 = Number(localStorage.player1);
@@ -291,7 +290,7 @@ document.querySelector('#clear').addEventListener('click', () => {
 });
 
 /**
- * Reseteo todos los valores
+ * Limpiar todos los valores
  */
 document.querySelector('#reset').addEventListener('click', () => {
 	tablePlayer = [
@@ -359,13 +358,13 @@ btnGameType.addEventListener('click', (e) => {
 	const type = Number(e.target.dataset['gameType']);
 
 	if (type === 1) {
-		options.automatico = false;
+		options.auto = false;
 		options.manual = true;
 		e.target.innerText = 'Automatico';
 		e.target.dataset['gameType'] = 2;
 		elementChangePlay.classList.remove('d-none');
 	} else {
-		options.automatico = true;
+		options.auto = true;
 		options.manual = false;
 		e.target.dataset['gameType'] = 1;
 		e.target.innerText = 'Manual';
