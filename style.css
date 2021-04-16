@@ -10,25 +10,38 @@ body {
 	height: 100vh;
 	background-color: #f8f9fa;
 	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 60vh 37vh 3vh;
+	grid-template-rows: 97% 3%;
+}
+
+.game {
+	display: grid;
+	grid-template-columns: 60% 40%;
+	padding: 1rem;
+	/* border: 1px solid crimson; */
+}
+
+.game > div {
+	/* border: 1px solid crimson; */
+	display: flex;
+	justify-content: center;
 	align-items: center;
-	justify-items: center;
 }
 
 .game-container {
-	width: 50%;
+	width: 600px;
+	height: 600px;
 	background-color: white;
 	display: grid;
-	box-shadow: 0 16px 18px -10px rgba(0,0,0,.26), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 5px -3px rgba(0,0,0,.1);
+	box-shadow: 0 16px 18px -10px rgba(0, 0, 0, 0.26),
+		0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 5px -3px rgba(0, 0, 0, 0.1);
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 100px);
+	grid-template-rows: repeat(3, 200px);
 	align-items: center;
 	text-align: center;
 }
 
 .game-item {
-	line-height: 100px;
+	line-height: 200px;
 	height: 100%;
 	font-size: 2rem;
 	color: #212529;
@@ -124,9 +137,13 @@ body {
 }
 
 .actions-items {
-	width: 100%;
+	/* width: 100%; */
 	color: #212529;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .points {
@@ -172,6 +189,7 @@ body {
 
 footer {
 	color: #000000;
+	text-align: center;
 }
 
 .d-none {
