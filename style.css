@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Courier New', Courier, monospace;
+	font-family: 'Lato', Courier, monospace;
 }
 
 body {
@@ -154,6 +156,10 @@ body {
 	font-size: 2rem;
 }
 
+.points > div {
+	padding: 1rem;
+}
+
 #winner {
 	display: inline-block;
 	margin-top: 1rem;
@@ -170,6 +176,7 @@ body {
 	outline: none;
 	border-style: solid;
 	cursor: pointer;
+	transition: all 0.3s;
 }
 
 .btn-clear {
@@ -177,9 +184,17 @@ body {
 	color: #0000ff;
 }
 
+.btn-clear:hover {
+	background-color: #dfdfff;
+}
+
 .btn-reset {
 	border-color: #ff0000;
 	color: #ff0000;
+}
+
+.btn-reset:hover {
+	background-color: #ffdfdf;
 }
 
 .btn-player.selected {
@@ -188,7 +203,7 @@ body {
 }
 
 footer {
-	color: #000000;
+	color: #cacaca;
 	text-align: center;
 }
 
