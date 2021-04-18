@@ -5,7 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="favicon.png" />
 		<title>Tic Tac Toe</title>
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="css/normalize.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
 		<div class="game">
@@ -26,12 +27,12 @@
 			<section class="actions-items">
 				<div class="points">
 					<div>
-						<p>Equipo 1(X)</p>
-						<p id="points-1">0</p>
+						<p><span id="nameTeam1">Equipo 1</span> - (X)</p>
+						<p class="view-points" id="points-1">0</p>
 					</div>
 					<div>
-						<p>Equipo 2(O)</p>
-						<p id="points-2">0</p>
+						<p><span id="nameTeam2">Equipo 2</span> - (O)</p>
+						<p class="view-points" id="points-2">0</p>
 					</div>
 				</div>
 				<h1 id="winner"></h1>
@@ -66,6 +67,9 @@
 					<button class="btn btn-reset" id="reset" type="button">
 						Reset
 					</button>
+					<a class="btn btn-team" href="team.html">
+						Non. Equipos
+					</a>
 				</div>
 			</section>
 		</div>
@@ -74,6 +78,6 @@
 			<p>Desarrollado por Efrain May | 2020</p>
 		</footer>
 
-		<script src="main.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
