@@ -3,60 +3,81 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="favicon.png">
+		<link rel="icon" type="image/png" href="favicon.png" />
 		<title>Tic Tac Toe</title>
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="css/normalize.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
-		<section class="game-container">
-			<div class="game-item" data-game="0" data-player="-">1</div>
-			<div class="game-item" data-game="1" data-player="-">2</div>
-			<div class="game-item" data-game="2" data-player="-">3</div>
-			<div class="game-item" data-game="3" data-player="-">4</div>
-			<div class="game-item" data-game="4" data-player="-">5</div>
-			<div class="game-item" data-game="5" data-player="-">6</div>
-			<div class="game-item" data-game="6" data-player="-">7</div>
-			<div class="game-item" data-game="7" data-player="-">8</div>
-			<div class="game-item" data-game="8" data-player="-">9</div>
-		</section>
-
-		<section class="actions-items">
-			<div class="points">
-				<div>Equipo 1(X) - <span id="points-1">0</span> puntos</div>
-				<div>Equipo 2(O) - <span id="points-2">0</span> puntos</div>
+		<div class="game">
+			<div>
+				<section class="game-container">
+					<div class="game-item" data-game="0" data-player="-">1</div>
+					<div class="game-item" data-game="1" data-player="-">2</div>
+					<div class="game-item" data-game="2" data-player="-">3</div>
+					<div class="game-item" data-game="3" data-player="-">4</div>
+					<div class="game-item" data-game="4" data-player="-">5</div>
+					<div class="game-item" data-game="5" data-player="-">6</div>
+					<div class="game-item" data-game="6" data-player="-">7</div>
+					<div class="game-item" data-game="7" data-player="-">8</div>
+					<div class="game-item" data-game="8" data-player="-">9</div>
+				</section>
 			</div>
-			<h1 id="winner"></h1>
 
-			<div class="actions-btns">
-				<button
-					class="btn btn-player"
-					id="game-type"
-					type="button"
-					data-game-type="1"
-				>
-					Manual
-				</button>
-				<div id="change-options" style="display: inline">
-					<button class="btn btn-player" id="player-1" type="button">
-						Equipo 1
-					</button>
-					<button class="btn btn-player" id="player-2" type="button">
-						Equipo 2
-					</button>
+			<section class="actions-items">
+				<div class="points">
+					<div>
+						<p><span id="nameTeam1">Equipo 1</span> - (X)</p>
+						<p class="view-points" id="points-1">0</p>
+					</div>
+					<div>
+						<p><span id="nameTeam2">Equipo 2</span> - (O)</p>
+						<p class="view-points" id="points-2">0</p>
+					</div>
 				</div>
-				<button class="btn btn-clear" id="clear" type="button">
-					Limpiar
-				</button>
-				<button class="btn btn-reset" id="reset" type="button">
-					Reset
-				</button>
-			</div>
-		</section>
+				<h1 id="winner"></h1>
+				<div class="actions-btns">
+					<button
+						class="btn btn-player"
+						id="game-type"
+						type="button"
+						data-game-type="1"
+					>
+						Manual
+					</button>
+					<div id="change-options" style="display: inline">
+						<button
+							class="btn btn-player"
+							id="player-1"
+							type="button"
+						>
+							Equipo 1
+						</button>
+						<button
+							class="btn btn-player"
+							id="player-2"
+							type="button"
+						>
+							Equipo 2
+						</button>
+					</div>
+					<button class="btn btn-clear" id="clear" type="button">
+						Limpiar
+					</button>
+					<button class="btn btn-reset" id="reset" type="button">
+						Reset
+					</button>
+					<a class="btn btn-team" href="team.html">
+						Nom. Equipos
+					</a>
+				</div>
+			</section>
+		</div>
 
 		<footer>
 			<p>Desarrollado por Efrain May | 2020</p>
 		</footer>
 
-		<script src="main.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>

@@ -1,0 +1,36 @@
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 95% 5%;
+}
+
+form {
+  border: 1px solid crimson;
+  background-color: #ffffff;
+  width: 30%;
+  margin: auto;
+  margin-top: 4rem;
+  box-shadow: 0 16px 18px -10px rgba(0, 0, 0, 0.26),
+		0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 5px -3px rgba(0, 0, 0, 0.1);
+}
+
+.form-control, .form-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.form-control label {
+  margin-bottom: .5rem;
+}
+
+.form-control input {
+  transition: all .3s;
+  padding: .5rem;
+}
+
+footer {
+	color: #cacaca;
+	text-align: center;
+}
