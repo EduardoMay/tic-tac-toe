@@ -25,4 +25,4 @@ Todo el juego esta desarrollado en:
 
 ## Preview
 
-![image](https://github.com/EduardoMay/tic-tac-toe/blob/master/preview/screen-game.png?raw=true)
+![image](https://github.com/EduardoMay/tic-tac-toe/blob/develop/preview/screen-game.png)
