@@ -1,229 +1,229 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Lato', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", Courier, monospace;
 }
 
 body {
-	width: 100vw;
-	height: 100vh;
-	background-color: #f8f9fa;
-	display: grid;
-	grid-template-rows: 97% 3%;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f9fa;
+  display: grid;
+  grid-template-rows: 97% 3%;
 }
 
 .game {
-	display: grid;
-	grid-template-columns: 60% 40%;
-	padding: 1rem;
-	/* border: 1px solid crimson; */
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 1rem;
+  /* border: 1px solid crimson; */
 }
 
 .game > div {
-	/* border: 1px solid crimson; */
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  /* border: 1px solid crimson; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-container {
-	width: 600px;
-	height: 600px;
-	background-color: white;
-	display: grid;
-	box-shadow: 0 16px 18px -10px rgba(0, 0, 0, 0.26),
-		0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 5px -3px rgba(0, 0, 0, 0.1);
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 200px);
-	align-items: center;
-	text-align: center;
+  width: 600px;
+  height: 600px;
+  background-color: white;
+  display: grid;
+  box-shadow: 0 16px 18px -10px rgba(0, 0, 0, 0.26),
+    0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 5px -3px rgba(0, 0, 0, 0.1);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 200px);
+  align-items: center;
+  text-align: center;
 }
 
 .game-item {
-	line-height: 200px;
-	height: 100%;
-	font-size: 2rem;
-	color: #212529;
-	background-color: #ffffff;
-	font-weight: bold;
-	cursor: pointer;
-	transition: 480ms all;
+  line-height: 200px;
+  height: 100%;
+  font-size: 2rem;
+  color: #212529;
+  background-color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 480ms all;
 }
 
 .game-item:nth-child(1),
 .game-item:nth-child(2),
 .game-item:nth-child(4),
 .game-item:nth-child(5) {
-	border-right: 3px solid #212529;
-	border-bottom: 3px solid #212529;
+  border-right: 3px solid #212529;
+  border-bottom: 3px solid #212529;
 }
 
 .game-item:nth-child(3),
 .game-item:nth-child(6) {
-	border-bottom: 3px solid #212529;
+  border-bottom: 3px solid #212529;
 }
 
 .game-item:nth-child(7),
 .game-item:nth-child(8) {
-	border-right: 3px solid #212529;
+  border-right: 3px solid #212529;
 }
 
 .game-item:hover {
-	background-color: snow;
-	color: black;
+  background-color: snow;
+  color: black;
 }
 
-.game-item[data-player='1'] {
-	color: #ff0000;
+.game-item[data-player="1"] {
+  color: #ff0000;
 }
 
-.game-item[data-player='2'] {
-	color: #0000ff;
+.game-item[data-player="2"] {
+  color: #0000ff;
 }
 
 .selected {
-	color: black;
-	cursor: not-allowed;
+  color: black;
+  cursor: not-allowed;
 }
 
 .winner-h,
 .winner-v,
 .winner-d-1,
 .winner-d-2 {
-	position: relative;
+  position: relative;
 }
 
 .winner-h::before {
-	position: absolute;
-	content: '';
-	top: 50%;
-	left: -100%;
-	width: calc(300% + 9px);
-	height: 5px;
-	background-color: red;
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: -100%;
+  width: 300%;
+  height: 5px;
+  background-color: red;
 }
 
 .winner-v::before {
-	position: absolute;
-	content: '';
-	top: 0%;
-	left: 50%;
-	width: 5px;
-	height: calc(300% + 9px);
-	background-color: red;
+  position: absolute;
+  content: "";
+  top: 2%;
+  left: 48%;
+  width: 5px;
+  height: 300%;
+  background-color: red;
 }
 
 .winner-d-1::before {
-	position: absolute;
-	content: '';
-	top: -100%;
-	left: 150%;
-	width: 5px;
-	height: 500%;
-	transform: rotate(-59deg);
-	background-color: red;
+  position: absolute;
+  content: "";
+  top: -100%;
+  left: 48%;
+  width: 5px;
+  height: 300%;
+  transform: rotate(315deg);
+  background-color: red;
 }
 
 .winner-d-2::before {
-	position: absolute;
-	content: '';
-	top: -100%;
-	left: -50%;
-	width: 5px;
-	height: 500%;
-	transform: rotate(59deg);
-	background-color: red;
+  position: absolute;
+  content: "";
+  top: -100%;
+  left: 50%;
+  width: 5px;
+  height: 300%;
+  transform: rotate(45deg);
+  background-color: red;
 }
 
 .actions-items {
-	/* width: 100%; */
-	color: #212529;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+  /* width: 100%; */
+  color: #212529;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .points {
-	display: flex;
-	justify-content: space-around;
-	color: #212529;
-	font-weight: bold;
-	font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
+  color: #212529;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .points > div {
-	padding: 1rem;
+  padding: 1rem;
 }
 
 .view-points {
-	margin-top: 2rem;
-	font-weight: bold;
+  margin-top: 2rem;
+  font-weight: bold;
 }
 
 #winner {
-	display: inline-block;
-	margin-top: 1rem;
-	text-transform: uppercase;
-	font-size: 2rem;
+  display: inline-block;
+  margin: 3rem 0;
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 
 .actions-btns {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .btn {
-	padding: 10px 20px;
-	outline: none;
-	border-style: solid;
-	border-width: .15rem;
-	cursor: pointer;
-	transition: all 0.3s;
-	background-color: #ffffff;
+  padding: 10px 20px;
+  outline: none;
+  border-style: solid;
+  border-width: 0.15rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #ffffff;
 }
 
 .btn-clear {
-	border-color: #0000ff;
-	color: #0000ff;
+  border-color: #0000ff;
+  color: #0000ff;
 }
 
 .btn-clear:hover {
-	background-color: #dfdfff;
+  background-color: #dfdfff;
 }
 
 .btn-reset {
-	border-color: #ff0000;
-	color: #ff0000;
+  border-color: #ff0000;
+  color: #ff0000;
 }
 
 .btn-reset:hover {
-	background-color: #ffdfdf;
+  background-color: #ffdfdf;
 }
 
 .btn-team {
-	border-color: #FF0080;
-	color: #FF0080;
-	text-decoration: none;
+  border-color: #ff0080;
+  color: #ff0080;
+  text-decoration: none;
 }
 
 .btn-team:hover {
-	background-color: #FFDFEF;
+  background-color: #ffdfef;
 }
 
 .btn-player.selected {
-	background-color: #000000;
-	color: #ffffff;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 footer {
-	color: #cacaca;
-	text-align: center;
+  color: #cacaca;
+  text-align: center;
 }
 
 .d-none {
-	display: none !important;
+  display: none !important;
 }
