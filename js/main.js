@@ -27,14 +27,12 @@ let pointsPlayer1 = 0,
   player2 = false;
 
 const gameItems = document.querySelectorAll(".game-item");
-document.querySelector("#winner").innerHTML = player1
-  ? "Turno - X"
-  : "Turno - 0";
 
 const btnPlayer1 = document.querySelector("#player-1");
 const btnPlayer2 = document.querySelector("#player-2");
 const elementChangePlay = document.querySelector("#change-options");
 const btnGameType = document.querySelector("#game-type");
+
 const nameTeams = localStorage.team
   ? JSON.parse(localStorage.team)
   : { team1: "Equipo 1", team2: "Equipo 2" };
@@ -54,6 +52,18 @@ gameItems.forEach((item) => {
 
 document.querySelector("#nameTeam1").innerText = nameTeams.team1;
 document.querySelector("#nameTeam2").innerText = nameTeams.team2;
+
+/**
+ * Change and set name team by turn
+ */
+const changeNameTeamByTurn = () => {
+  const team1 = `Turno de ${nameTeams.team1}`;
+  const team2 = `Turno de ${nameTeams.team2}`;
+
+  document.querySelector("#winner").innerHTML = player1 ? team1 : team2;
+};
+
+changeNameTeamByTurn();
 
 /**
  * Detecta el jugador principal y va cambiando de turno
@@ -92,9 +102,7 @@ function changePlayer(e) {
     }
   }
 
-  document.querySelector("#winner").innerHTML = player1
-    ? "Turno - X"
-    : "Turno - 0";
+  changeNameTeamByTurn();
 }
 
 /**
@@ -214,11 +222,11 @@ function resolverDiagonalPlayer(itemPlayer) {
     if (items.every((item) => item === itemPlayer)) {
       switch (i) {
         case 0:
-          document.querySelector(`[data-game='0']`).classList.add("winner-d-1");
+          document.querySelector(`[data-game='4']`).classList.add("winner-d-1");
           break;
 
         default:
-          document.querySelector(`[data-game='2']`).classList.add("winner-d-2");
+          document.querySelector(`[data-game='4']`).classList.add("winner-d-2");
           break;
       }
 
@@ -290,7 +298,7 @@ document.querySelector("#reset").addEventListener("click", () => {
   ];
 
   document.querySelector("#winner").innerHTML = "";
-  document.querySelector("#winner").innerHTML = player1 ? "Turno X" : "Turno 0";
+  changeNameTeamByTurn();
 
   localStorage.removeItem("player1");
   localStorage.removeItem("player2");
@@ -319,9 +327,7 @@ btnPlayer1.addEventListener("click", (_) => {
   btnPlayer1.classList.add("selected");
   btnPlayer2.classList.remove("selected");
 
-  document.querySelector("#winner").innerHTML = player1
-    ? "Turno - X"
-    : "Turno - 0";
+  changeNameTeamByTurn();
 });
 
 /**
@@ -334,9 +340,7 @@ btnPlayer2.addEventListener("click", (_) => {
   btnPlayer1.classList.remove("selected");
   btnPlayer2.classList.add("selected");
 
-  document.querySelector("#winner").innerHTML = player1
-    ? "Turno - X"
-    : "Turno - 0";
+  changeNameTeamByTurn();
 });
 
 /**
@@ -348,7 +352,7 @@ btnGameType.addEventListener("click", (e) => {
   if (type === 1) {
     options.auto = false;
     options.manual = true;
-    e.target.innerText = "Automatico";
+    e.target.innerText = "Automático";
     e.target.dataset["gameType"] = 2;
     elementChangePlay.classList.remove("d-none");
   } else {
